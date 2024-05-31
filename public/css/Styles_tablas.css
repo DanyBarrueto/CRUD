@@ -1,0 +1,28 @@
+
+/*Configuraciones para las proporciones de las tablas*/
+
+    #tabla_usuarios{
+        border-radius: 10px;
+        max-height: 37vh;
+    }
+
+    #tabla_usuarios table{
+        width: 150vw;
+    }
+
+/*Configuración de los estilos de los modales para permitir la edición*/
+
+    .modal input{
+        color: #ffffff;
+        text-align: center;
+        background-color: #33ccff;
+    }
+
+    .modal select{
+        color: white;
+        background-color: #33ccff;
+    }
+
+    .modal #bloqueado input{
+        background-color: #ff3333;
+    }
