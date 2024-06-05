@@ -28,7 +28,11 @@
         }
 
         nav #boton_registro{
-            width: 18vh;
+            width: 20vh;
+        }
+
+        nav #boton_consultas{
+            width: 16vh;
         }
 
 /*Estilos de los formularios de registro*/ 

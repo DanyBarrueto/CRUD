@@ -78,6 +78,16 @@
                             @endif
                         @else
 
+                            <!--Botón para consultas-->
+
+                            <li class="nav-item" id="boton_consultas">
+                                <a class="nav-link fw-bold" href="{{ route('search') }}">{{ __('Consultas') }}
+                                
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                                </a>
+                            </li>
+
                             <!--Sitio del boton del usuario despues de inicar-->
                             
                             <li class="nav-item dropdown">
@@ -108,6 +118,7 @@
                                     </form>
                                 </div>
                             </li>
+
                         @endguest
                     </ul>
                 </div>

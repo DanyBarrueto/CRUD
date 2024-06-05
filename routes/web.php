@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -12,28 +13,38 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//ruta para crear nuevos registros en la tabla de trabajadores:
+Route::get('/search', [SearchController::class, 'index'])->name('search');
+
+
+//Ruta para crear nuevos registros en las tablas
+
+    //ruta para crear nuevos registros en la tabla de trabajadores:
+
     Route::post('/registrar-producto-trabajador', [HomeController::class, "create"])->name("example-app.create");
 
     //ruta para crear nuevos registros en la BDD en la tabla de equipos:
+
     Route::post('/registrar-producto-equipo', [HomeController::class, "create2"])->name("example-app.create2");
 
     //ruta para crear nuevos registros en la BDD en la tabla de historico:
+
     Route::post('/registrar-producto-historico', [HomeController::class, "create3"])->name("example-app.create3");
+
+
 
 //Rutas para poder modificar registros en las tablas principales de la base de datos
 
     //ruta para modificar registros de la BDD en la tabla trabajadores:
         
-        Route::post('/modificar-producto-trabajador', [HomeController::class, "update"])->name("example-app.update");
+        Route::post('/modificar-producto-trabajador', [SearchController::class, "update"])->name("example-app.update");
 
         //ruta para modificar registros de la BDD en la tabla en la tabla equipos: 
     
-        Route::post('/modificar-producto-equipo', [HomeController::class, "update2"])->name("example-app.update2");
+        Route::post('/modificar-producto-equipo', [SearchController::class, "update2"])->name("example-app.update2");
     
         //ruta para modificar registros de la BDD en la tabla histórico 
     
-        Route::post('/modificar-producto-historico', [HomeController::class, "update3"])->name("example-app.update3");
+        Route::post('/modificar-producto-historico', [SearchController::class, "update3"])->name("example-app.update3");
     
     
     
@@ -41,19 +52,19 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     
         //ruta para buscar registros en la tabla de trabajadores en la BDD
     
-        Route::get('/buscar-trabajador', [HomeController::class, 'buscar'])->name('example-app.buscar');
+        Route::get('/buscar-trabajador', [SearchController::class, 'buscar'])->name('example-app.buscar');
     
         //ruta para buscar registros en la tabla equipos en la BDD:
     
-        Route::get('/buscar-equipo', [HomeController::class, 'buscar2'])->name('example-app.buscar2');
+        Route::get('/buscar-equipo', [SearchController::class, 'buscar2'])->name('example-app.buscar2');
     
         //ruta para buscar registros en la tabla historico en la BDD:
     
-        Route::get('/buscar-historico', [HomeController::class, 'buscar3'])->name('example-app.buscar3');
+        Route::get('/buscar-historico', [SearchController::class, 'buscar3'])->name('example-app.buscar3');
     
         //ruta para consultar la tablas de equipos y de trabajadores
         
-        Route::get('/buscar-datos', [HomeController::class, 'buscar4'])->name('example-app.buscar4');
+        Route::get('/buscar-datos', [SearchController::class, 'buscar4'])->name('example-app.buscar4');
     
     
         
