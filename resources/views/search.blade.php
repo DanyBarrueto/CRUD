@@ -3,7 +3,6 @@
 
 @section('content')
 <div class="container">
-    <h1>Consultas</h1>
     
     <!--Mensajes para notificar si el registro se guardo o actualizo bien o si llego a fallar durante el proceso-->
     @if (session("Correcto"))
@@ -20,6 +19,9 @@
         <h3 class="fw-bold text-center">Tablas</h3>
 
         <div class="row">
+
+            <!--Tabla de trabajadores-->
+            
             <div class="col-md-12">
 
                 <h4 class="mt-3 fw-bold" >Tabla de Trabajadores</h4>
@@ -39,12 +41,8 @@
                                             <i class="fa-solid fa-magnifying-glass"></i>
                                         </button>
                                         
-                                        <a href="{{ route('home') }}" class="btn btn-warning fw-bold" id="boton_limpiar">
+                                        <a href="{{ route('search') }}" class="btn btn-warning fw-bold" id="boton_limpiar">
                                             <i class="fa-solid fa-brush"></i>
-                                        </a>
-
-                                        <a href="{{ route('descargar.datos') }}" class="btn btn-primary fw-bold" id="boton_descargar">
-                                            <i class="fa-solid fa-file-arrow-down"></i>
                                         </a>
 
                                     </div>

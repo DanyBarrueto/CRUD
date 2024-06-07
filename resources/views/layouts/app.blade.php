@@ -20,8 +20,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     
     <!--Css-->
+
+        <!--estilos del navbar-->
     <link rel="stylesheet" href="{{ asset('css/Styles_navar.css') }}">
+
+        <!--estilos de las tablas para consultar la información-->
     <link rel="stylesheet" href="{{ asset('css/Styles_tablas.css') }}">
+
+        <!--estilos de todo lo referente al registro-->
+    <link rel="stylesheet" href="{{ asset('css/Styles_registro.css') }}">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -78,14 +85,67 @@
                             @endif
                         @else
 
+                            <!--Botón para registrar-->
+
+                            <li class="nav-item" id="boton_registros">
+                                <a class="nav-link fw-bold" href="{{ route('home') }}">{{ __('Registrar') }}
+                                
+                                    <i class="fa-solid fa-id-card"></i>
+
+                                </a>
+                            </li>
+
                             <!--Botón para consultas-->
 
                             <li class="nav-item" id="boton_consultas">
-                                <a class="nav-link fw-bold" href="{{ route('search') }}">{{ __('Consultas') }}
+                                <a class="nav-link fw-bold" href="{{ route('search') }}">{{ __('Consultar') }}
                                 
                                     <i class="fa-solid fa-magnifying-glass"></i>
 
                                 </a>
+                            </li>
+
+                            <!--Botón barra desplegable-->
+
+                            <li class="nav-item dropdown">
+
+                                <!--Boton barra desplegable-->
+
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    
+                                    Descargar
+
+                                    <i class="fa-solid fa-floppy-disk"></i>
+
+                                </a>
+
+                                <!--Opcion descargar tabla trabajores-->
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_trabajadores">
+                                        Tabla trabajadores
+                                    </a>
+
+                                    <!--opcion descargar tabla equipos-->
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_equipos">
+                                        Tabla equipos
+                                    </a>
+
+                                    <!--opción descargar tabla historico-->
+
+                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_historico">
+                                        Tabla historico
+                                    </a>
+
+                                    <!--opción descargar toda la base de datos-->
+                                    
+                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_todo">
+                                        Toda la BDD
+                                    </a>
+
+                                </div>
                             </li>
 
                             <!--Sitio del boton del usuario despues de inicar-->
@@ -104,7 +164,7 @@
                                 <!--Opcion para cerrar seción-->
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item" href="{{ route('logout') }}" id="boton_cerrar"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Cerrar Sesión') }}

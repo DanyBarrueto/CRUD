@@ -31,7 +31,13 @@
             width: 20vh;
         }
 
+        /*Botones que solo se muestran después de ingresar */
+
         nav #boton_consultas{
+            width: 16vh;
+        }
+
+        nav #boton_registros{
             width: 16vh;
         }
 
@@ -49,4 +55,45 @@
 
     #Encabezado_ingreso{
         background-color: cyan;
+    }
+
+/*Estilos de los botones de descargas*/
+
+    #descargar_trabajadores:hover{
+        background-color: #008cff;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
+    }
+
+    #descargar_equipos:hover{
+        background-color: #ffae00;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
+    }
+
+    #descargar_historico:hover{
+        background-color: #08b64a;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
+    }
+
+    #descargar_todo:hover{
+        background-color: #5900ff;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
+    }
+
+    #boton_cerrar:hover{
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
     }
