@@ -536,7 +536,137 @@
     </div>
 
     <!--Tabla del historico-->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="mt-3 fw-bold">Tabla de Historico</h4>
 
+                <!--Aca se declara la parte para permitir las busquedas en la tabla de historico-->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <form action="{{route('example-app.buscar3')}}" method="GET">
+                            <div class="form-row align-items-center">
+                
+                                <div class="col-auto my-1">
+                                    <div class="btn-group">
+                                        <input type="text" class="form-control" name="texto" value="id equipo o historico" onfocus="this.value='';">
+                                        
+                                        <button type="submit" class="btn btn-success fw-bold" id="boton_buscar">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+                                        
+                                        <a href="{{ route('search') }}" class="btn btn-warning fw-bold" id="boton_limpiar">
+                                            <i class="fa-solid fa-brush"></i>
+                                        </a>
+
+                                    </div>
+                                </div>                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--Encabezado de la tabla para los datos de la BDD-->
+                <div class="table-responsive overflow-auto" id="tabla_historico">
+                    <table class="table table-light">
+                        <thead class="table-success table-responsive ">
+                        <tr>
+                            <th>#</th>
+                            <th># Equipo</th>
+                            <th>Historial de asignaciones</th>
+                            <th>Procesos a ejecutar</th>
+                            <th>Anotaciones</th>
+                            <th>Editar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <!--Conexion con BDD para permitir mostrar los datos registrados
+                                en la tabla recien creada-->
+                            @foreach ($historico as $item)
+                            <tr>
+                                <td>{{$item->ID_historico}}</td>
+                                <td style="width: 7vw;">{{$item->ID_equipo}}</td>
+                                <td>{{$item->Historial_asignaciones}}</td>
+                                <td>{{$item->Procesos_a_ejecutar}}</td>
+                                <td>{{$item->Anotaciones}}</td>
+                                <td>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarHistorico{{$item->ID_historico}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib fa-beat"></i></a>
+                                </td>
+                            </tr>
+                            <!-- Modal para modificar los datos de los registros de la BDD-->
+                                <div class="modal fade" id="modalEditarHistorico{{$item->ID_historico}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+                                    <div class="modal-dialog modal-xl modal-lg">
+                                        <div class="modal-content" >
+                                            <div class="modal-header " style="background-color: #0dec63;">
+                                            <h1 class="modal-title fs-3 fw-bold" id="exampleModalLabel">Modificar datos</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+
+                                            <div class="modal-body" style="background-color: #f2f2f2;">
+                                                <form class="col-md-8" action="{{ route('example-app.update3') }}" method="post">
+
+                                                    <!--Para proteger contra ataques CSRF-->
+                                                    @csrf
+
+                                                    <div class="row">
+
+                                                    <!--Desde aca se editan los datos personales del trabajador-->
+
+                                                        <h2 class="fw-bold">Historial:</h2>
+
+                                                        <!--campo para mostrar el ID del historico (NO es editable)-->
+
+                                                        <div class="col-md-1">
+                                                            <label for="ID_historico" class="form-label fw-bold">ID:</label>
+                                                            <input type="text" id="id" name="id" class="form-control border-dark text-white text-center" style="background-color:  #ff3333;" value="{{$item->ID_historico}}" readonly >
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <label for="ID_equipo" class="form-label fw-bold">ID del equipo:</label>
+                                                            <input type="text" id="id_equipo" name="id_equipo" class="form-control border-dark text-white text-center" style="background-color: #ff3333;" value="{{$item->ID_equipo}}" readonly/>
+                                                        </div>
+                        
+                                                        <div class="col-md-12">
+                                                            <label for="historial_asignacion" class="form-label fw-bold">Historial asignación:</label>
+                                                            <input type="text" id="historial_asignacion" name="historial_asignacion" class="form-control border-dark text-white" style="background-color: #33ccff;" value="{{$item->Historial_asignaciones}}"/>
+                                                        </div>
+
+                                                        <div class="col-md-12">
+                                                            <label for="procesos_ejecutar" class="form-label fw-bold">Procesos a ejecutar:</label>
+                                                            <input type="text" id="procesos_ejecutar" name="procesos_ejecutar" class="form-control border-dark text-white" style="background-color: #33ccff;" value="{{$item->Procesos_a_ejecutar}}"/>
+                                                        </div>
+                        
+                                                        <div class="col-md-12">
+                                                            <label for="anotaciones" class="form-label fw-bold">Anotaciones:</label>
+                                                            <textarea name="anotaciones" rows="3" class="form-control border-dark text-white" style="background-color: #33ccff;">{{$item->Anotaciones}}</textarea>
+                                                        </div>                                                        
+                                                        
+                                                        <br><br>
+
+                                                        <!--campo de los botones para cerrar la pestaña emergente o para poder guardar los cambios
+                                                        en los datos -->
+
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger fw-bold" data-bs-dismiss="modal" id="boton_cerrar">Cerrar</button>
+                                                            <button type="submit" class="btn btn-success fw-bold" id="boton_guardar_cambios" >Guardar cambios</button>
+                                                        </div>
+                                                    </div>           
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        
+                        </tbody>
+                    </table>
+                    
+                    </div>
+
+                </div>
+                </div>
+    </div>
 
 </div>
 @endsection
