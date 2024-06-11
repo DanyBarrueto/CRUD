@@ -4,6 +4,7 @@
 <div class="container">
     
     <div class="container">
+
         <!--Formulario principal, registro de los datos personales en la tabla Trabajadores-->
         <h3 class="fw-bold text-center">Registro</h3>
 
@@ -56,7 +57,7 @@
                     
                     <!--lista desplegable para elegir uno de los cargos-->
 
-                    <div class="col-md-8">
+                    <div class="col-md-6">
                         <label for="cargo" class="form-label fw-bold">Cargo Asignado:</label>
                         <select name="cargo" id="cargo" class="form-select border-dark" required>
                                 <option value=""></option>
@@ -68,7 +69,7 @@
 
                     <!--campo para insertar la cuenta de correo electonico-->
 
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label for="correo" class="form-label fw-bold">Correo:</label>
                         <input type="text" id="correo" name="correo" class="form-control border-dark" required />
                     </div>
@@ -400,7 +401,7 @@
 
                                 <!--campo para elegir el equipo al que se le va a poner un historial-->
 
-                                <div class="col-md-2">
+                                <div class="col-md-3">
                                     <label for="id_equipo" class="form-label fw-bold">Código del equipo:</label>
                                     <select name="id_equipo" id="id_equipo" class="form-select border-dark text-white" required>
                                             <option value=""></option>
@@ -442,7 +443,6 @@
                         </form>
                     </div>
                 </div>
-                <hr>
                 
     </div>
 

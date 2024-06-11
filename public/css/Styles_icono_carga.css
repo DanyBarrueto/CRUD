@@ -1,0 +1,47 @@
+
+/*Ajustes visuales y animaciones para el icono de carga*/
+
+    *,*:after,*:before{
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+/*Ajustes gráficos del fondo mientras se muestre el icono de carga*/
+
+    #contenedor_carga{
+        background-color: #ffffff;
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        transition: all 1s ease;
+    }
+
+/*Ajustes gráficos del icono de carga*/
+
+    #carga{
+        border: 15px solid rgb(0, 255, 179);
+        border-top-color: rgb(0, 102, 255);
+        border-top-style: groove;
+        height: 100px;
+        width: 100px;
+        border-radius: 100%;
+
+        position: absolute;
+        margin-left: 45vw;
+        margin-top: 45vh;
+        -webkit-animation: girar 1.5s linear infinite;
+        -o-animation: girar 1.5s linear infinite;
+        animation: girar 1.5s linear infinite;
+    }
+
+/*Animaciones del icono de carga*/
+
+    @keyframes girar{
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg);}
+    }

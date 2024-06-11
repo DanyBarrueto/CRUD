@@ -292,22 +292,24 @@ class HomeController extends Controller
 
         //función para descargar toda la BDD con toda la información de cada tabla 
 
-        public function descargarDatos4() {
+        public function descargarDatos4(){
             // Obtener los nombres de todas las tablas de la base de datos
-            $tables = DB::connection()->getDoctrineSchemaManager()->listTableNames();
-        
+            $tables = DB::select('SHOW TABLES');
+            $databaseName = DB::getDatabaseName();
+
             // Inicializar un array para almacenar todos los datos
             $allData = [];
-        
+
             foreach ($tables as $table) {
+                $tableName = $table->{"Tables_in_{$databaseName}"};
                 // Obtener los datos de cada tabla y agregarlos al array
-                $data = DB::table($table)->get()->toArray();
-                $allData[$table] = $data;
+                $data = DB::table($tableName)->get()->toArray();
+                $allData[$tableName] = $data;
             }
-        
+
             // Nombre del archivo CSV
             $csvFileName = 'BDD_Eiatec_Toda.csv';
-        
+
             // Encabezados para la respuesta HTTP
             $headers = array(
                 "Content-type" => "text/csv",
@@ -316,30 +318,32 @@ class HomeController extends Controller
                 "Cache-Control" => "must-revalidate, post-check=0, pre-check=0",
                 "Expires" => "0"
             );
-        
+
             // Función de devolución de llamada para generar el archivo CSV
             $callback = function() use ($allData) {
                 $file = fopen('php://output', 'w');
-        
+
                 foreach ($allData as $tableName => $tableData) {
                     // Escribir el nombre de la tabla como encabezado
                     fputcsv($file, [$tableName]);
-        
-                    // Encabezado CSV
-                    fputcsv($file, array_keys((array) $tableData[0]));
-        
-                    // Datos
-                    foreach ($tableData as $dato) {
-                        fputcsv($file, (array) $dato);
+
+                    if (!empty($tableData)) {
+                        // Encabezado CSV
+                        fputcsv($file, array_keys((array) $tableData[0]));
+
+                        // Datos
+                        foreach ($tableData as $dato) {
+                            fputcsv($file, (array) $dato);
+                        }
                     }
-        
+
                     // Agregar una línea en blanco entre las tablas
                     fputcsv($file, []);
                 }
-        
+
                 fclose($file);
             };
-        
+
             // Retornar la respuesta HTTP como una respuesta de flujo
             return new StreamedResponse($callback, 200, $headers);
         }

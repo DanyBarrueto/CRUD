@@ -12,6 +12,9 @@
     <!--Iconos-->
     <script src="https://kit.fontawesome.com/2460b47c04.js" crossorigin="anonymous"></script>
 
+    <!--Comandos para el icono de carga-->
+    <script src="{{ asset('scripts/icono_carga.js') }}" defer></script>
+
     <!-- Fuentes -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -30,6 +33,9 @@
         <!--estilos de todo lo referente al registro-->
     <link rel="stylesheet" href="{{ asset('css/Styles_registro.css') }}">
 
+        <!--estilos para el estado de carga-->
+    <link rel="stylesheet" href="{{ asset('css/Styles_icono_carga.css') }}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -39,6 +45,13 @@
 </head>
 
 <body>
+
+    <div id="contenedor_carga">
+
+        <div id="carga"></div>
+    
+    </div>
+
     <div id="app">
 
         <!--Navbar a nivel general -->
@@ -123,25 +136,25 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_trabajadores">
+                                    <a class="dropdown-item" href="{{ route('descargar.datos') }}" id="descargar_trabajadores">
                                         Tabla trabajadores
                                     </a>
 
                                     <!--opcion descargar tabla equipos-->
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_equipos">
+                                    <a class="dropdown-item" href="{{ route('descargar.datos2') }}" id="descargar_equipos">
                                         Tabla equipos
                                     </a>
 
                                     <!--opción descargar tabla historico-->
 
-                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_historico">
+                                    <a class="dropdown-item" href="{{ route('descargar.datos3') }}" id="descargar_historico">
                                         Tabla historico
                                     </a>
 
                                     <!--opción descargar toda la base de datos-->
                                     
-                                    <a class="dropdown-item" href="{{ route('logout') }}" id="descargar_todo">
+                                    <a class="dropdown-item" href="{{ route('descargar.datos4') }}" id="descargar_todo">
                                         Toda la BDD
                                     </a>
 

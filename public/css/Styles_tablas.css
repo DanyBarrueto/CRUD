@@ -10,6 +10,15 @@
         width: 150vw;
     }
 
+    #tabla_equipos{
+        border-radius: 10px;
+        max-height: 37vh;
+    }
+
+    #tabla_equipos table{
+        width: 150vw;
+    }
+
 /*Configuración de los estilos de los modales para permitir la edición*/
 
     .modal input{
