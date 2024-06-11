@@ -15,6 +15,190 @@
 
     <h3 class="fw-bold text-center">Consultas,Tablas y Edición</h3>
 
+<!--Consulta en general en forma de formularios-->
+    <div class="container">
+
+                <!--Campo para busquedas-->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <form action="{{ route('example-app.buscar4') }}" method="GET">
+                            <div class="form-row align-items-center">
+                                <div class="col-auto my-1">
+                                    <div class="btn-group">
+                                        <select name="texto" class="form-select border-dark fw-bold">
+                                            <option value="">Selecciona un Trabajador</option>
+                                            @foreach ($trabajadores as $trabajador)
+                                                <option value="{{ $trabajador->Nombre }}">{{ $trabajador->Nombre }}</option>
+                                            @endforeach
+                                        </select>
+                                        <button type="submit" class="btn btn-success fw-bold" id="boton_buscar">
+                                            <i class="fa-solid fa-magnifying-glass"></i>
+                                        </button>
+
+                                        <!--boton para volver a la vista anterior-->
+
+                                        <a href="{{ route('search') }}" class="btn btn-warning fw-bold" id="boton_limpiar">
+                                            <i class="fa-solid fa-brush"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                                  
+            <br>
+
+            @if (!empty($equipos))
+                @foreach ($equipos as $equipo)
+                
+            <div class="container">
+                <div class="row" id="Consulta_form">
+        
+                <!--Campos de consulta del formulario con los datos del trabajador -->
+                    <div class="col-md-6">
+                        <h3 class="fw-bold">Datos del trabajador:</h3>
+                        <div class="form-group">
+                            <label for="input1" class="fw-bold">Nombre:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input1" name="nombre" value="{{ isset($trabajador) ? $trabajador->Nombre : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input2" class="fw-bold">Cédula:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input2" name="cedula" value="{{ isset($trabajador) ? $trabajador->Cedula : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input3" class="fw-bold">Lugar de expedición:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input3" name="cedula" value="{{ isset($trabajador) ? $trabajador->LugarExpedicion : '' }}" readonly>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="input4" class="fw-bold">Cargo:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input4" name="cedula" value="{{ isset($trabajador) ? $trabajador->Cargo : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input5" class="fw-bold">Correo:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input5" name="cedula" value="{{ isset($trabajador) ? $trabajador->Correo : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input6" class="fw-bold">Contraseña:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input6" name="cedula" value="{{ isset($trabajador) ? $trabajador->Contraseña : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input7" class="fw-bold">Ubicación:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input7" name="cedula" value="{{ isset($trabajador) ? $trabajador->Ubicacion : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input8" class="fw-bold">Teléfono:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input8" name="cedula" value="{{ isset($trabajador) ? $trabajador->Telefono : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input9" class="fw-bold">Código:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input9" name="cedula" value="{{ isset($equipo) ? $equipo->Codigo : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input10"class="fw-bold">Oficina:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input10" name="cedula" value="{{ isset($equipo) ? $equipo->Oficina : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input11" class="fw-bold">Direción:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input11" name="cedula" value="{{ isset($equipo) ? $equipo->Direccion : '' }}" readonly>
+                        </div>
+
+                    </div>
+        
+                <!--Campos de consultas del formulario con los datos del equipo asignado a la persona-->
+            
+                    <div class="col-md-6">
+                        <h3 class="fw-bold">Datos del equipo:</h3>
+
+                        <div class="form-group">
+                            <label for="input12" class="fw-bold">Estado:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input12" name="marca" value="{{ isset($equipo) ? $equipo->Estado : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input13" class="fw-bold">Tipo:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input13" name="tipo" value="{{ isset($equipo) ? $equipo->Tipo : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input14" class="fw-bold">Marca:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input14" name="marca" value="{{ isset($equipo) ? $equipo->Marca : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input15" class="fw-bold">Modelo:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input15" name="marca" value="{{ isset($equipo) ? $equipo->Modelo : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input16" class="fw-bold">Numero de Serie:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input16" name="marca" value="{{ isset($equipo) ? $equipo->Num_serie : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input17" class="fw-bold">ID Producto:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input17" name="marca" value="{{ isset($equipo) ? $equipo->Id_producto : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input18" class="fw-bold">Procesador:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input18" name="marca" value="{{ isset($equipo) ? $equipo->Procesador : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input19" class="fw-bold">Ram:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input19" name="marca" value="{{ isset($equipo) ? $equipo->Ram : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input20" class="fw-bold">Disco:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input20" name="marca" value="{{ isset($equipo) ? $equipo->Disco : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input21" class="fw-bold">GPU/APU:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input21" name="marca" value="{{ isset($equipo) ? $equipo->GPU_APU : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input22" class="fw-bold">Sistema Operativo:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input22" name="marca" value="{{ isset($equipo) ? $equipo->Sistema_operativo : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input23" class="fw-bold">Licencia:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input23" name="marca" value="{{ isset($equipo) ? $equipo->Tipo_licencia : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input24" class="fw-bold">Display:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input24" name="marca" value="{{ isset($equipo) ? $equipo->Display : '' }}" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="input25" class="fw-bold">Anydesk:</label>
+                            <input type="text" class="form-control border-dark text-center" id="input25" name="marca" value="{{ isset($equipo) ? $equipo->Anydesk : '' }}" readonly>
+                        </div>
+
+                    </div>
+                @endforeach
+            @endif
+        
+                </div>
+            </div>
+    </div>
+
     <!--Tabla de trabajadores-->
     <div class="container mt-4">
 

@@ -1,6 +1,8 @@
 
 /*Configuraciones para las proporciones de las tablas*/
 
+    /*Ajustes visuales de la tabla de usuarios*/
+
     #tabla_usuarios{
         border-radius: 10px;
         max-height: 37vh;
@@ -10,6 +12,8 @@
         width: 150vw;
     }
 
+    /*Ajustes visuales de la tabla de equipos*/
+
     #tabla_equipos{
         border-radius: 10px;
         max-height: 37vh;
@@ -17,6 +21,12 @@
 
     #tabla_equipos table{
         width: 150vw;
+    }
+
+    /*Ajustes visuales de la consulta general*/
+    #Consulta_form input{
+        background-color: #aaaaa6;
+        color: #ffffff;
     }
 
 /*Configuración de los estilos de los modales para permitir la edición*/

@@ -33,7 +33,7 @@
 
         position: absolute;
         margin-left: 45vw;
-        margin-top: 45vh;
+        margin-top: 40vh;
         -webkit-animation: girar 1.5s linear infinite;
         -o-animation: girar 1.5s linear infinite;
         animation: girar 1.5s linear infinite;
