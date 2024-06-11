@@ -588,7 +588,7 @@
                                 <td>{{$item->ID_historico}}</td>
                                 <td style="width: 7vw;">{{$item->ID_equipo}}</td>
                                 <td>{{$item->Historial_asignaciones}}</td>
-                                <td>{{$item->Procesos_a_ejecutar}}</td>
+                                <td style="width: 14vw;">{{$item->Procesos_a_ejecutar}}</td>
                                 <td>{{$item->Anotaciones}}</td>
                                 <td>
                                     <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarHistorico{{$item->ID_historico}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib fa-beat"></i></a>
