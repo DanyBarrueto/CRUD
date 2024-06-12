@@ -198,6 +198,15 @@
             </div>
         </nav>
 
+        <!--Mensajes para notificar si el registro se guardo o actualizo bien o si llego a fallar durante el proceso-->
+    @if (session("Correcto"))
+    <div class="alert alert-success fw-bold fs-5 ">{{session("Correcto")}}</div>
+    @endif
+
+    @if (session("Incorrecto"))
+    <div class="alert alert-danger fw-bold fs-5">{{session("Incorrecto")}}</div>
+    @endif
+
         <main class="py-4">
             @yield('content')
         </main>

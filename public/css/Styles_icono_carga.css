@@ -24,8 +24,8 @@
 /*Ajustes gráficos del icono de carga*/
 
     #carga{
-        border: 15px solid rgb(0, 255, 179);
-        border-top-color: rgb(0, 102, 255);
+        border: 15px solid #00ffb3;
+        border-top-color: #0066ff;
         border-top-style: groove;
         height: 100px;
         width: 100px;

@@ -44,17 +44,17 @@
 /*Estilos de los formularios de registro*/ 
 
     #Encabezado_registro{
-        background-color: aqua;
+        background-color: #00ffff;
     }
 
     #Fondo_registro{
-        background-color: rgb(0, 255, 170);
+        background-color: #00ffaa;
     }
 
 /*Estilos del formulario de ingreso*/ 
 
     #Encabezado_ingreso{
-        background-color: cyan;
+        background-color: #00ffff;
     }
 
 /*Estilos de los botones de descargas*/

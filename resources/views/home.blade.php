@@ -135,11 +135,11 @@
                                     <label for="estado" class="form-label fw-bold">Estado:</label>
                                     <select id="estado" name="estado" class="form-select border-dark" required>
                                         <option value=""></option>
-                                        <option value="De_baja">De baja</option>
+                                        <option value="De baja">De baja</option>
                                         <option value="Disponible">Disponible</option>
-                                        <option value="En_garantia">En garantia</option>
+                                        <option value="En garantia">En garantia</option>
                                         <option value="Ilocalizado">Ilocalizado</option>
-                                        <option value="No_aplica">No aplica</option>
+                                        <option value="No aplica">No aplica</option>
                                         <option value="Pendiente">Pendiente</option>
                                     </select>                    
                                 </div>
