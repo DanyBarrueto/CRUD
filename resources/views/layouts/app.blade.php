@@ -36,6 +36,9 @@
         <!--estilos para el estado de carga-->
     <link rel="stylesheet" href="{{ asset('css/Styles_icono_carga.css') }}">
 
+        <!--estilos para el fondo de las bolitas en la pagina principal -->
+    <link rel="stylesheet" href="{{ asset('css/Styles_fondo.css') }}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
