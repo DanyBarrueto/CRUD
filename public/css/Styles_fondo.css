@@ -26,7 +26,7 @@
 
 @keyframes animate {
     0%{
-        transform: translateY(37vh) scale(0);
+        transform: translateY(36vh) scale(0);
     }
     100%{
         transform: translateY(-70vh) scale(1);

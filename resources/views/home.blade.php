@@ -8,8 +8,6 @@
         <!--Formulario principal, registro de los datos personales en la tabla Trabajadores-->
         <h3 class="fw-bold text-center">Registro</h3>
 
-        <hr>
-
         <h4 class="fw-bold">Datos personales del trabajador:</h4>
 
         <div class="row justify-content-center" id="registro_trabajador">

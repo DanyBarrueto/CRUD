@@ -1,0 +1,32 @@
+
+/*Configuración del fondo*/
+    #general{
+
+        display: grid;
+        width: 100%;
+        height: 100vh;
+
+        background-image: linear-gradient(
+            to bottom right,
+            #9cdf9c 0%,
+            #6bf76b 20%,
+            #30b130 40%,
+            #1f8b1f 60%,
+            #5bff5b 80%
+        );
+
+        background-size: 200% 200%;
+    
+        animation: movimiento 8s linear infinite alternate;
+    }
+
+/*Animación para el movimiento del fondo*/
+
+    @keyframes movimiento{
+        from {
+            background-position:0 0;
+        }
+        to{
+            background-position: 100% 100%;
+        }
+    }

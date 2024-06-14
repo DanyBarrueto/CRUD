@@ -23,6 +23,8 @@
 
     /*Botones navbar*/
 
+        /*Botones que se muestran antes de ingresar*/
+
         nav #boton_navegacion{
             width: 20vh;
         }
@@ -41,23 +43,55 @@
             width: 16vh;
         }
 
-/*Estilos de los formularios de registro*/ 
+/*Animaciones de los botones*/
 
-    #Encabezado_registro{
-        background-color: #00ffff;
+    /*Botones principales (pre-ingreso)*/
+
+    nav #boton_navegacion:hover{
+        background-color: #0edb5d;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
     }
 
-    #Fondo_registro{
-        background-color: #00ffaa;
+    nav #boton_registro:hover{
+        background-color: #c300ff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
     }
 
-/*Estilos del formulario de ingreso*/ 
+    /*Botones principales (post-ingreso)*/
 
-    #Encabezado_ingreso{
-        background-color: #00ff88;
+    nav #boton_registros:hover{
+        background-color: #4cd6a1;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
     }
 
-/*Estilos de los botones de descargas*/
+    nav #boton_consultas:hover{
+        background-color: #ffd900;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
+    }
+
+    nav #boton_descargar:hover{
+        background-color: #15ff00;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
+    }
+
+    nav #boton_usuario:hover{
+        background-color: #18d8e6;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+        border-radius: 10px;
+    }
+
+    /*Botones de descarga*/
 
     #descargar_trabajadores:hover{
         background-color: #008cff;
@@ -90,6 +124,8 @@
         transition: all 0.4s linear;
         border-radius: 10px;
     }
+
+    /*Botón para cerrar sesión*/
 
     #boton_cerrar:hover{
         color: #ffffff;

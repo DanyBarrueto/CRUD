@@ -38,7 +38,7 @@
 
         <br>
 
-        <!-- Verificar si hay trabajadores antes de mostrar la tabla -->
+        <!-- Datos de los equipos y depaso comprovar si existen datos para mostrar-->
         @if (!empty($trabajadores))
             <div class="row" id="Consulta_form">
                 <div class="col-md-6">
@@ -57,42 +57,42 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="input4">Cargo:</label>
+                        <label for="input4" class="fw-bold">Cargo:</label>
                         <input type="text" class="form-control border-dark text-center" id="input4" name="cedula" value="{{ $trabajadores[0]->Cedula ?? '' }}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="input5">Correo:</label>
+                        <label for="input5" class="fw-bold">Correo:</label>
                         <input type="text" class="form-control border-dark text-center" id="input5" name="correo" value="{{ $trabajadores[0]->Correo ?? '' }}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="input6">Contraseña:</label>
+                        <label for="input6" class="fw-bold">Contraseña:</label>
                         <input type="text" class="form-control border-dark text-center" id="input6" name="contraseña" value="{{ $trabajadores[0]->Contraseña ?? '' }}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="input7">Ubicación:</label>
+                        <label for="input7" class="fw-bold">Ubicación:</label>
                         <input type="text" class="form-control border-dark text-center" id="input7" name="ubicacion" value="{{ $trabajadores[0]->Ubicacion ?? '' }}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="input8">Teléfono:</label>
+                        <label for="input8" class="fw-bold">Teléfono:</label>
                         <input type="text" class="form-control border-dark text-center" id="input8" name="telefono" value="{{ $trabajadores[0]->Telefono ?? '' }}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="input9">Código:</label>
+                        <label for="input9" class="fw-bold">Código:</label>
                         <input type="text" class="form-control border-dark text-center" id="input9" name="codigo" value="{{ $equipos[0]->Codigo ?? '' }}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="input10">Oficina:</label>
+                        <label for="input10" class="fw-bold">Oficina:</label>
                         <input type="text" class="form-control border-dark text-center" id="input10" name="oficina" value="{{ $equipos[0]->Oficina ?? '' }}" readonly>
                     </div>
 
                     <div class="form-group">
-                        <label for="input11">Direción:</label>
+                        <label for="input11" class="fw-bold">Direción:</label>
                         <input type="text" class="form-control border-dark text-center" id="input11" name="direccion" value="{{ $equipos[0]->Direccion ?? '' }}" readonly>
                     </div>
 
@@ -104,72 +104,72 @@
                         <h3 class="fw-bold">Datos del equipo:</h3>
 
                         <div class="form-group">
-                            <label for="input12">Estado:</label>
+                            <label for="input12" class="fw-bold">Estado:</label>
                             <input type="text" class="form-control border-dark text-center" id="input12" name="marca" value="{{ $equipos[0]->Estado ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input13">Tipo:</label>
+                            <label for="input13" class="fw-bold">Tipo:</label>
                             <input type="text" class="form-control border-dark text-center" id="input13" name="tipo" value="{{ $equipos[0]->Tipo ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input14">Marca:</label>
+                            <label for="input14" class="fw-bold">Marca:</label>
                             <input type="text" class="form-control border-dark text-center" id="input14" name="marca" value="{{ $equipos[0]->Marca ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input15">Modelo:</label>
+                            <label for="input15" class="fw-bold">Modelo:</label>
                             <input type="text" class="form-control border-dark text-center" id="input15" name="modelo" value="{{ $equipos[0]->Modelo ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input16">Numero de Serie:</label>
+                            <label for="input16" class="fw-bold">Numero de Serie:</label>
                             <input type="text" class="form-control border-dark text-center" id="input16" name="num_serie" value="{{ $equipos[0]->Num_serie ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input17">ID Producto:</label>
+                            <label for="input17" class="fw-bold">ID Producto:</label>
                             <input type="text" class="form-control border-dark text-center" id="input17" name="id_producto" value="{{ $equipos[0]->Id_producto ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input18">Procesador:</label>
+                            <label for="input18" class="fw-bold">Procesador:</label>
                             <input type="text" class="form-control border-dark text-center" id="input18" name="procesador" value="{{ $equipos[0]->Procesador ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input19">Ram:</label>
+                            <label for="input19" class="fw-bold">Ram:</label>
                             <input type="text" class="form-control border-dark text-center" id="input19" name="ram" value="{{ $equipos[0]->Ram ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input20">Disco:</label>
+                            <label for="input20" class="fw-bold">Disco:</label>
                             <input type="text" class="form-control border-dark text-center" id="input20" name="disco" value="{{ $equipos[0]->Disco ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input21">GPU/APU:</label>
+                            <label for="input21" class="fw-bold">GPU/APU:</label>
                             <input type="text" class="form-control border-dark text-center" id="input21" name="gpu_apu" value="{{ $equipos[0]->GPU_APU ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input22">Sistema Operativo:</label>
+                            <label for="input22" class="fw-bold">Sistema Operativo:</label>
                             <input type="text" class="form-control border-dark text-center" id="input22" name="sistema_operativo" value="{{ $equipos[0]->Sistema_operativo ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input23">Licencia:</label>
+                            <label for="input23" class="fw-bold">Licencia:</label>
                             <input type="text" class="form-control border-dark text-center" id="input23" name="licencia" value="{{ $equipos[0]->Tipo_licencia ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input24">Display:</label>
+                            <label for="input24" class="fw-bold">Display:</label>
                             <input type="text" class="form-control border-dark text-center" id="input24" name="display" value="{{ $equipos[0]->Display ?? '' }}" readonly>
                         </div>
 
                         <div class="form-group">
-                            <label for="input25">Anydesk:</label>
+                            <label for="input25" class="fw-bold">Anydesk:</label>
                             <input type="text" class="form-control border-dark text-center" id="input25" name="anydesk" value="{{ $equipos[0]->Anydesk ?? '' }}" readonly>
                         </div>
 
@@ -238,8 +238,7 @@
 
                         <tbody>
                             
-                            <!--Conexion con BDD para permitir mostrar los datos registrados
-                                en la tabla recien creada-->
+                            <!--Conexion con la BDD para permitir mostrar los datos registrados-->
                             @foreach ($trabajadores as $item)
                             <tr>
                                 <td>{{$item->ID_trabajador}}</td>

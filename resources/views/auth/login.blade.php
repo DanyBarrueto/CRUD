@@ -2,6 +2,9 @@
 
 @section('content')
 
+<!--Para el fondo-->
+<link rel="stylesheet" href="{{ asset('css/Styles_fondo_movimiento_login.css') }}">
+
 <div class="container">
     <div class="row justify-content-center">
 
@@ -11,7 +14,7 @@
 
                 <div class="card-header fw-bold" id="Encabezado_ingreso">{{ __('Ingreso') }}</div>
 
-                <div class="card-body">
+                <div class="card-body" id="fondo_ingreso">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

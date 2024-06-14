@@ -1,11 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!--Para el fondo-->
+<link rel="stylesheet" href="{{ asset('css/Styles_fondo_movimiento_registro.css') }}">
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header" id="Encabezado_registro">{{ __('Registro') }}</div>
+                <div class="card-header fw-bold" id="Encabezado_registro">{{ __('Registro') }}</div>
 
                 <div class="card-body" id="Fondo_registro">
                     <form method="POST" action="{{ route('register') }}">
@@ -26,7 +30,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end fw-bold">{{ __('Cuenta de correo') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-end fw-bold">{{ __('Correo') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">

@@ -1,0 +1,24 @@
+
+/*Estilos de los formularios de registro*/ 
+
+    #Encabezado_registro{
+        background: linear-gradient(to right, #00ffff 0%, #00ff88 100%);
+        text-align: center;
+        font-size: 1.8em;
+    }
+
+    #Fondo_registro {
+        background: linear-gradient(to right, #ffffff00 0%, #7f7f7f 100%);
+    }
+
+/*Estilos del formulario de ingreso*/ 
+
+    #Encabezado_ingreso{
+        background: linear-gradient(to right, #00ff88 0%, #00d8d8 100%);
+        text-align: center;
+        font-size: 1.8em;
+    }
+
+    #fondo_ingreso{
+        background: linear-gradient(to right, #ffffff00 0%, #7f7f7f00 100%);
+    }

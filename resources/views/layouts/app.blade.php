@@ -39,6 +39,9 @@
         <!--estilos para el fondo de las bolitas en la pagina principal -->
     <link rel="stylesheet" href="{{ asset('css/Styles_fondo.css') }}">
 
+        <!--estilos para el login y el register-->
+    <link rel="stylesheet" href="{{ asset('css/Styles_acceso.css') }}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -47,7 +50,7 @@
 
 </head>
 
-<body>
+<body id="general">
 
     <div id="contenedor_carga">
 
@@ -123,7 +126,7 @@
 
                             <!--Botón barra desplegable-->
 
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown" id="boton_descargar">
 
                                 <!--Boton barra desplegable-->
 
@@ -166,7 +169,7 @@
 
                             <!--Sitio del boton del usuario despues de inicar-->
                             
-                            <li class="nav-item dropdown">
+                            <li class="nav-item dropdown" id="boton_usuario">
 
                                 <!--Boton barra desplegable-->
 

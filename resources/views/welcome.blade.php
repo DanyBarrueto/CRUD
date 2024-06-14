@@ -58,7 +58,6 @@
         <span style="--i:13"></span>
         <span style="--i:26"></span>
         <span style="--i:17"></span>
-        <span style="--i:28"></span>
     </div>
 
 @endsection
