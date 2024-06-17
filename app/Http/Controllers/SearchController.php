@@ -48,7 +48,17 @@ class SearchController extends Controller
                                 LEFT JOIN Trabajadores ON Equipos.ID_trabajador = Trabajadores.ID_trabajador
                                 ORDER BY Equipos.ID_equipo DESC");
     
-        $historico = DB::select("SELECT * FROM Historico ORDER BY ID_historico DESC");
+        $historico = DB::select("SELECT Historico.ID_historico, 
+                                Historico.Historial_asignaciones, 
+                                Historico.Procesos_a_ejecutar, 
+                                Historico.Anotaciones, 
+                                Historico.ID_equipo,
+                                Equipos.Codigo AS Codigo
+
+                                FROM Historico
+                                LEFT JOIN Equipos ON Historico.ID_equipo = Equipos.ID_equipo
+                                ORDER BY Historico.ID_historico DESC");
+
     
         $coordinador = DB::select("SELECT * FROM Coordinadores");
     
@@ -121,10 +131,19 @@ class SearchController extends Controller
                                         LEFT JOIN Trabajadores ON Equipos.ID_trabajador = Trabajadores.ID_trabajador
                                         ORDER BY Equipos.ID_equipo DESC");
             
+            $historico = DB::select("SELECT Historico.ID_historico, 
+                                Historico.Historial_asignaciones, 
+                                Historico.Procesos_a_ejecutar, 
+                                Historico.Anotaciones, 
+                                Historico.ID_equipo,
+                                Equipos.Codigo AS Codigo
+
+                                FROM Historico
+                                LEFT JOIN Equipos ON Historico.ID_equipo = Equipos.ID_equipo
+                                ORDER BY Historico.ID_historico DESC");
+
             // Obtener datos de las demas tablas
             $expedicion = DB::select("SELECT * FROM Expedicion ORDER BY ID_expedicion ASC");
-
-            $historico = DB::select("SELECT * FROM Historico ORDER BY ID_historico DESC");
 
             $coordinador = DB::select("SELECT * FROM Coordinadores");
             
@@ -137,10 +156,8 @@ class SearchController extends Controller
             $direccion = DB::select("SELECT * FROM Direccion ORDER BY ID_direccion ASC");
         
             $ubicacion = DB::select("SELECT * FROM Ubicacion ORDER BY ID_ubicacion ASC");
-
-            $historico = DB::select("SELECT * FROM Historico ORDER BY ID_historico DESC");
         
-            // Retornar la vista "Welcome" con los datos de la búsqueda y el texto de búsqueda
+            // Retornar la vista con los datos de la búsqueda y el texto de búsqueda
             return view('search', compact('trabajadores','coordinador','expedicion','cargo','oficina','licencia','direccion','ubicacion','equipos','historico'));        
         }
         
@@ -174,7 +191,6 @@ class SearchController extends Controller
                                 ORDER BY Equipos.ID_equipo ASC", ['%'.$texto.'%', '%'.$texto.'%']);
 
 
-
             $trabajadores = DB::select("SELECT Trabajadores.ID_trabajador, Trabajadores.Cedula, Trabajadores.Nombre, 
                                 Expedicion.Lugar AS LugarExpedicion, 
                                 Cargo.Cargo AS Cargo,
@@ -194,19 +210,34 @@ class SearchController extends Controller
                                 INNER JOIN Ubicacion ON Trabajadores.ID_ubicacion = Ubicacion.ID_ubicacion
                                 ORDER BY Trabajadores.ID_trabajador DESC");
 
-            // Obtener la lista de expediciones
+            $historico = DB::select("SELECT Historico.ID_historico, 
+                                Historico.Historial_asignaciones, 
+                                Historico.Procesos_a_ejecutar, 
+                                Historico.Anotaciones, 
+                                Historico.ID_equipo,
+                                Equipos.Codigo AS Codigo
+
+                                FROM Historico
+                                LEFT JOIN Equipos ON Historico.ID_equipo = Equipos.ID_equipo
+                                ORDER BY Historico.ID_historico DESC");
+
+            // Obtener los demas datos de las tablas 
+
             $expedicion = DB::select("SELECT * FROM Expedicion ORDER BY ID_expedicion DESC");
             
-            // Obtener las demás listas necesarias (igual que en la función buscar)
-            $historico = DB::select("SELECT * FROM Historico ORDER BY ID_historico DESC");
             $coordinador = DB::select("SELECT * FROM Coordinadores");
+
             $cargo = DB::select("SELECT * FROM Cargo ORDER BY ID_cargo ASC");
+
             $oficina = DB::select("SELECT * FROM Oficinas ORDER BY ID_oficina ASC");
+
             $licencia = DB::select("SELECT * FROM Licencia ORDER BY ID_licencia ASC");
+
             $direccion = DB::select("SELECT * FROM Direccion ORDER BY ID_direccion ASC");
+
             $ubicacion = DB::select("SELECT * FROM Ubicacion ORDER BY ID_ubicacion ASC");
             
-            // Retornar la vista "Welcome" con los datos de la búsqueda y las listas necesarias
+            // Retornar la vista con los datos de la búsqueda y las listas necesarias
             return view('search', compact('equipos', 'expedicion', 'historico', 'coordinador', 'cargo', 'oficina', 'licencia', 'direccion', 'ubicacion','trabajadores'));        
         }
         
@@ -217,14 +248,22 @@ class SearchController extends Controller
             $texto = trim($request->get('texto'));
             
             // Realizar la consulta a la base de datos utilizando la consulta SQL
-            $historico = DB::select("SELECT * FROM Historico 
-                                    WHERE ID_historico LIKE ? OR
-                                        ID_equipo LIKE ? OR
-                                        Historial_asignaciones LIKE ? OR
-                                        Procesos_a_ejecutar LIKE ? OR
-                                        Anotaciones LIKE ?
-                                    ORDER BY ID_historico DESC", 
-                                    ['%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%']);
+            $historico = DB::select("SELECT Historico.ID_historico, 
+                            Historico.Historial_asignaciones, 
+                            Historico.Procesos_a_ejecutar, 
+                            Historico.Anotaciones, 
+                            Historico.ID_equipo,
+                            Equipos.Codigo AS Codigo
+                            FROM Historico
+                            LEFT JOIN Equipos ON Historico.ID_equipo = Equipos.ID_equipo
+                            WHERE Historico.ID_historico LIKE ? OR
+                              Historico.ID_equipo LIKE ? OR
+                              Historico.Historial_asignaciones LIKE ? OR
+                              Historico.Procesos_a_ejecutar LIKE ? OR
+                              Historico.Anotaciones LIKE ? OR
+                              Equipos.Codigo LIKE ?
+                            ORDER BY Historico.ID_historico DESC", 
+                            ['%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%']);
 
             $trabajadores = DB::select("SELECT Trabajadores.ID_trabajador, Trabajadores.Cedula, Trabajadores.Nombre, 
                                     Expedicion.Lugar AS LugarExpedicion, 
@@ -266,13 +305,19 @@ class SearchController extends Controller
                                     LEFT JOIN Trabajadores ON Equipos.ID_trabajador = Trabajadores.ID_trabajador
                                     ORDER BY Equipos.ID_equipo DESC");
         
-            // Obtener las demás listas necesarias (igual que en la función buscar)
+            // Obtener las demás listas necesarias
             $coordinador = DB::select("SELECT * FROM Coordinadores");
+
             $cargo = DB::select("SELECT * FROM Cargo ORDER BY ID_cargo ASC");
+
             $oficina = DB::select("SELECT * FROM Oficinas ORDER BY ID_oficina ASC");
+
             $licencia = DB::select("SELECT * FROM Licencia ORDER BY ID_licencia ASC");
+
             $direccion = DB::select("SELECT * FROM Direccion ORDER BY ID_direccion ASC");
+
             $ubicacion = DB::select("SELECT * FROM Ubicacion ORDER BY ID_ubicacion ASC");
+            
             $expedicion = DB::select("SELECT * FROM Expedicion ORDER BY ID_expedicion ASC");
 
             // Retornar la vista "Welcome" con los datos de la búsqueda y las listas necesarias
@@ -333,17 +378,33 @@ class SearchController extends Controller
                 // Verificar si se encontraron equipos antes de consultar el historial
                 if (!empty($equipos)) {
                     // Consulta a la tabla de historial filtrando por el ID del equipo
-                    $historico = DB::select("SELECT * FROM Historico WHERE ID_equipo = ? ORDER BY ID_historico DESC", [$equipos[0]->ID_equipo]);
-                }
+                    $historico = DB::select("SELECT Historico.ID_historico, 
+                                                    Historico.Historial_asignaciones, 
+                                                    Historico.Procesos_a_ejecutar, 
+                                                    Historico.Anotaciones, 
+                                                    Historico.ID_equipo,
+                                                    Equipos.Codigo AS Codigo
+                                             FROM Historico
+                                             LEFT JOIN Equipos ON Historico.ID_equipo = Equipos.ID_equipo
+                                             WHERE Historico.ID_equipo = ? 
+                                             ORDER BY Historico.ID_historico DESC", 
+                                             [$equipos[0]->ID_equipo]);
+                }                
             }
         
             // Consulta a las demás tablas
             $expedicion = DB::select("SELECT * FROM Expedicion ORDER BY ID_expedicion ASC");
+
             $coordinador = DB::select("SELECT * FROM Coordinadores");
+
             $cargo = DB::select("SELECT * FROM Cargo ORDER BY ID_cargo ASC");
+
             $oficina = DB::select("SELECT * FROM Oficinas ORDER BY ID_oficina ASC");
+
             $licencia = DB::select("SELECT * FROM Licencia ORDER BY ID_licencia ASC");
+
             $direccion = DB::select("SELECT * FROM Direccion ORDER BY ID_direccion ASC");
+
             $ubicacion = DB::select("SELECT * FROM Ubicacion ORDER BY ID_ubicacion ASC");
         
             // Retornar la vista con los datos de la búsqueda y los datos originales

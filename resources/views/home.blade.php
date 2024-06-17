@@ -139,6 +139,7 @@
                                         <option value="Ilocalizado">Ilocalizado</option>
                                         <option value="No aplica">No aplica</option>
                                         <option value="Pendiente">Pendiente</option>
+                                        <option value="Asignado">Asignado</option>
                                     </select>                    
                                 </div>
 

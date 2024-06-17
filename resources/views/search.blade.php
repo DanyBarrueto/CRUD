@@ -532,6 +532,7 @@
                                                                 <option value="Ilocalizado" {{ $item->Estado == 'Ilocalizado' ? 'selected' : '' }}>Ilocalizado</option>
                                                                 <option value="No aplica" {{ $item->Estado == 'No aplica' ? 'selected' : '' }}>No aplica</option>
                                                                 <option value="Pendiente" {{ $item->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
+                                                                <option value="Asignado" {{ $item->Estado == 'Asignado' ? 'selected' : '' }}>Asignado</option>
                                                             </select>                    
                                                         </div>                                                        
 
@@ -734,7 +735,7 @@
                         <thead class="table-success table-responsive ">
                         <tr>
                             <th>#</th>
-                            <th># Equipo</th>
+                            <th>Codigo</th>
                             <th>Historial de asignaciones</th>
                             <th>Procesos a ejecutar</th>
                             <th>Anotaciones</th>
@@ -748,7 +749,7 @@
                             @foreach ($historico as $item)
                             <tr>
                                 <td>{{$item->ID_historico}}</td>
-                                <td style="width: 7vw;">{{$item->ID_equipo}}</td>
+                                <td>{{$item->Codigo}}</td>
                                 <td>{{$item->Historial_asignaciones}}</td>
                                 <td style="width: 14vw;">{{$item->Procesos_a_ejecutar}}</td>
                                 <td>{{$item->Anotaciones}}</td>
@@ -787,6 +788,11 @@
                                                         <div class="col-md-1" id="bloqueado">
                                                             <label for="ID_equipo" class="form-label fw-bold">ID equipo:</label>
                                                             <input type="text" id="id_equipo" name="id_equipo" class="form-control border-dark text-center" value="{{$item->ID_equipo}}" readonly/>
+                                                        </div>
+
+                                                        <div class="col-md-2" id="bloqueado">
+                                                            <label for="Codigo" class="form-label fw-bold">Codigo del equipo:</label>
+                                                            <input type="text" id="codigo" name="codigo" class="form-control border-dark text-center" value="{{$item->Codigo}}" readonly/>
                                                         </div>
                         
                                                         <div class="col-md-12">
