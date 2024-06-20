@@ -86,6 +86,7 @@ class SearchController extends Controller
             $texto = trim($request->get('texto'));
             
             // Consulta a la tabla de trabajadores
+
             $trabajadores = DB::select("SELECT Trabajadores.ID_trabajador, Trabajadores.Cedula, Trabajadores.Nombre, 
                                         Expedicion.Lugar AS LugarExpedicion, 
                                         Cargo.Cargo AS Cargo,
@@ -110,6 +111,7 @@ class SearchController extends Controller
                                         ['%'.$texto.'%', '%'.$texto.'%', '%'.$texto.'%']);
 
             //Consulta a la tabla de equipos
+
             $equipos = DB::select("SELECT Equipos.ID_equipo,Equipos.Estado,Equipos.Codigo,Equipos.Modelo,Equipos.Num_serie,
                                         Equipos.Id_producto,Equipos.Procesador,Equipos.Ram,Equipos.Disco,Equipos.GPU_APU,Equipos.ID_licencia,
                                         Equipos.Sistema_operativo,Equipos.Display,Equipos.Anydesk,Equipos.Clave_equipo,Equipos.ID_trabajador,
@@ -142,7 +144,8 @@ class SearchController extends Controller
                                 LEFT JOIN Equipos ON Historico.ID_equipo = Equipos.ID_equipo
                                 ORDER BY Historico.ID_historico DESC");
 
-            // Obtener datos de las demas tablas
+            // Obtener datos de las demás tablas
+
             $expedicion = DB::select("SELECT * FROM Expedicion ORDER BY ID_expedicion ASC");
 
             $coordinador = DB::select("SELECT * FROM Coordinadores");
@@ -168,6 +171,7 @@ class SearchController extends Controller
             $texto = trim($request->get('texto'));
             
             // Realizar la consulta a la base de datos utilizando la consulta SQL
+
             $equipos = DB::select("SELECT Equipos.ID_equipo, Equipos.Estado, Equipos.Codigo, Equipos.ID_tipo, Equipos.ID_marca, Equipos.Modelo, Equipos.Num_serie,
                                 Equipos.Id_producto, Equipos.Procesador, Equipos.Ram, Equipos.Disco, Equipos.GPU_APU, Equipos.ID_licencia, Equipos.Sistema_operativo,
                                 Equipos.Display, Equipos.Anydesk, Equipos.ID_ubicacion, Equipos.ID_oficina, Equipos.ID_direccion, Equipos.Clave_equipo, Equipos.ID_trabajador,
@@ -221,7 +225,7 @@ class SearchController extends Controller
                                 LEFT JOIN Equipos ON Historico.ID_equipo = Equipos.ID_equipo
                                 ORDER BY Historico.ID_historico DESC");
 
-            // Obtener los demas datos de las tablas 
+            // Obtener los demás datos de las tablas 
 
             $expedicion = DB::select("SELECT * FROM Expedicion ORDER BY ID_expedicion DESC");
             
@@ -248,6 +252,7 @@ class SearchController extends Controller
             $texto = trim($request->get('texto'));
             
             // Realizar la consulta a la base de datos utilizando la consulta SQL
+
             $historico = DB::select("SELECT Historico.ID_historico, 
                             Historico.Historial_asignaciones, 
                             Historico.Procesos_a_ejecutar, 
@@ -306,6 +311,7 @@ class SearchController extends Controller
                                     ORDER BY Equipos.ID_equipo DESC");
         
             // Obtener las demás listas necesarias
+
             $coordinador = DB::select("SELECT * FROM Coordinadores");
 
             $cargo = DB::select("SELECT * FROM Cargo ORDER BY ID_cargo ASC");
@@ -331,6 +337,7 @@ class SearchController extends Controller
             $texto = trim($request->get('texto'));
             
             // Consulta a la tabla de trabajadores
+
             $trabajadores = DB::select("SELECT Trabajadores.*, 
                                             Expedicion.Lugar AS LugarExpedicion, 
                                             Cargo.Cargo AS Cargo,
@@ -376,6 +383,7 @@ class SearchController extends Controller
                         [$idTrabajador]);
         
                 // Verificar si se encontraron equipos antes de consultar el historial
+                
                 if (!empty($equipos)) {
                     // Consulta a la tabla de historial filtrando por el ID del equipo
                     $historico = DB::select("SELECT Historico.ID_historico, 

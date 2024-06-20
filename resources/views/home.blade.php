@@ -67,14 +67,14 @@
 
                     <!--campo para insertar la cuenta de correo electonico-->
 
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <label for="correo" class="form-label fw-bold">Correo:</label>
                         <input type="text" id="correo" name="correo" class="form-control border-dark" required />
                     </div>
 
                     <!--campo para insertar la contraseña de la cuenta-->
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label for="contraseña" class="form-label fw-bold">Contraseña:</label>
                         <input type="text" id="contraseña" name="contraseña" class="form-control border-dark" required />
                     </div>
@@ -88,7 +88,7 @@
 
                     <!--lista desplegable para elegir la ubicacion-->
 
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <label for="ubicacion" class="form-label fw-bold">Ubicación:</label>
                         <select id="ubicacion" name="ubicacion" class="form-select border-dark" required>
                             <option value=""></option>
@@ -400,12 +400,12 @@
 
                                 <!--campo para elegir el equipo al que se le va a poner un historial-->
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <label for="id_equipo" class="form-label fw-bold">Código del equipo:</label>
                                     <select name="id_equipo" id="id_equipo" class="form-select border-dark text-white" required>
                                             <option value=""></option>
                                         @foreach ($equipos as $equipo)
-                                            <option value="{{ $equipo->ID_equipo }}">Codigo: {{ $equipo->Codigo }}</option>
+                                            <option value="{{ $equipo->ID_equipo }}">{{ $equipo->Codigo }}</option>
                                         @endforeach
                                     </select>
                                 </div>

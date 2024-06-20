@@ -1,34 +1,76 @@
-.bubbles{
-    position: relative;
-    display: flex;
-}
 
-.bubbles span{
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background: #26e67ca6;
-    margin: 0 4px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #26e67c44,
-    0 0 50px #26e67ca6,
-    0 0 100px #26e67ca6;
-    animation: animate 30s linear infinite;
-    animation-duration: calc(260s / var(--i));
-}
+/*Ajustes del fondo*/
 
-.bubbles span:nth-child(even){
-    background: #ccc8c9a6;
-    box-shadow: 0 0 0 10px #ccc8c944,
-    0 0 50px #ccc8c9a6,
-    0 0 100px #ccc8c9a6;
-}
+    /*Fondo para el inicio general*/
 
-@keyframes animate {
-    0%{
-        transform: translateY(36vh) scale(0);
+    .bubbles{
+        position: relative;
+        display: flex;
     }
-    100%{
-        transform: translateY(-70vh) scale(1);
+
+    .bubbles span{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: #26e67ca6;
+        margin: 0 4px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px #26e67c44,
+        0 0 50px #26e67ca6,
+        0 0 100px #26e67ca6;
+        animation: animate 30s linear infinite;
+        animation-duration: calc(260s / var(--i));
     }
-}
+
+    .bubbles span:nth-child(even){
+        background: #ccc8c9a6;
+        box-shadow: 0 0 0 10px #ccc8c944,
+        0 0 50px #ccc8c9a6,
+        0 0 100px #ccc8c9a6;
+    }
+
+    @keyframes animate {
+        0%{
+            transform: translateY(36vh) scale(0);
+        }
+        100%{
+            transform: translateY(-70vh) scale(1);
+        }
+    }
+
+    /*Ajuste fondo register*/
+
+    .bubbles2{
+        position: relative;
+        display: flex;
+    }
+
+    .bubbles2 span{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: #26e67ca6;
+        margin: 0 4px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px #26e67c44,
+        0 0 50px #26e67ca6,
+        0 0 100px #26e67ca6;
+        animation: animate2 30s linear infinite;
+        animation-duration: calc(260s / var(--i));
+    }
+
+    .bubbles2 span:nth-child(even){
+        background: #8b8889a6;
+        box-shadow: 0 0 0 10px #3d3c3c44,
+        0 0 50px #8b8889a6,
+        0 0 100px #8b8889a6;
+    }
+
+    @keyframes animate2 {
+        0%{
+            transform: translateY(80vh) scale(0);
+        }
+        100%{
+            transform: translateY(-70vh) scale(1);
+        }
+    }

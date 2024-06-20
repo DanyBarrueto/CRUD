@@ -3,99 +3,94 @@
     
     /*Formulario primario de los trabajadores */
 
-    #registro_trabajador .boton_enviar{
-        background-color: #198754;
-        color: #ffffff;
-    }
+        /*Botón*/
 
-    #registro_trabajador input, #registro_trabajador select{
-        background-color: #aaaaa6;
-    }
+        #registro_trabajador .boton_enviar{
+            background-color: #198754;
+            color: #ffffff;
+        }
 
-    #registro_trabajador label{
-        color: #7ab82c;
-    }
+        /*Fondo campos*/
 
-    #tabla_usuarios{
-        border-radius: 10px;
-        max-height: 37vh;
-    }
+        #registro_trabajador input, #registro_trabajador select{
+            background-color: #aaaaa6;
+        }
 
-    #tabla_usuarios table{
-        width: 150vw;
-    }
+        /*Color títulos de los campos*/
+
+        #registro_trabajador label{
+            color: #7ab82c;
+        }
 
     /*Formulario secundario de los equipos*/
 
-    #registro_equipo .boton_enviar{
-        background-color: #198754;
-        color: #ffffff;
-    }
+        /*Botón*/
 
-    #registro_equipo input, #registro_equipo select{
-        background-color: #aaaaa6;
-    }
+        #registro_equipo .boton_enviar{
+            background-color: #198754;
+            color: #ffffff;
+        }
 
-    #registro_equipo label{
-        color: #7ab82c;
-    }
+        /*Fondo campos*/
 
-    #tabla_equipo{
-        border-radius: 10px;
-        max-height: 37vh;
-    }
+        #registro_equipo input, #registro_equipo select{
+            background-color: #aaaaa6;
+        }
 
-    #tabla_equipo table{
-        width: 280vw;
-    }
+        /*Color títulos de los campos*/
+
+        #registro_equipo label{
+            color: #7ab82c;
+        }
 
     /*Formulario Terciario del histórico*/
 
-    #registro_historial .boton_enviar{
-        background-color: #198754;
-        color: #ffffff;
-    }
+        /**/
 
-    #registro_historial input, #registro_historial select,
-     #registro_historial textarea{
-        background-color: #aaaaa6;
-    }
+        #registro_historial .boton_enviar{
+            background-color: #198754;
+            color: #ffffff;
+        }
 
-    #registro_historial label{
-        color: #7ab82c;
-    }
+        /**/
 
-    #tabla_historico{
-        border-radius: 10px;
-        max-height: 35vh;
-    }
+        #registro_historial input, #registro_historial select,
+        #registro_historial textarea{
+            background-color: #aaaaa6;
+        }
+
+        /**/
+        
+        #registro_historial label{
+            color: #7ab82c;
+        }
 
 /*Estilos y animaciones de los botones de los formularios y los modales*/
 
-#boton_enviar:hover, #boton_guardar_cambios:hover{
-    background-color: #ff5e00;
-    color: #ffffff;
-    transform: scale(1.1);
-    transition: all 0.4s linear;
-}
+    #boton_enviar:hover, #boton_guardar_cambios:hover{
+        background-color: #ff5e00;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+    }
 
-#boton_descargar:hover{
-    background-color: #7700ff;
-    color: #ffffff;
-    transform: scale(1.1);
-    transition: all 0.4s linear;
-}
+    #boton_descargar:hover{
+        background-color: #7700ff;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+    }
 
-#boton_limpiar:hover, #boton_cerrar:hover{
-    background-color: #000000;
-    color: #ffffff;
-    transform: scale(1.1);
-    transition: all 0.4s linear;
-}
+    #boton_limpiar:hover, #boton_cerrar:hover{
+        background-color: #000000;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
+    }
 
-#boton_buscar:hover{
-    background-color: #0be076;
-    color: #ffffff;
-    transform: scale(1.1);
-    transition: all 0.4s linear;
+    #boton_buscar:hover{
+        background-color: #0be076;
+        color: #ffffff;
+        transform: scale(1.1);
+        transition: all 0.4s linear;
 }

@@ -2,10 +2,49 @@
 
 @section('content')
 
-<!--Para el fondo-->
-<link rel="stylesheet" href="{{ asset('css/Styles_fondo_movimiento_login.css') }}">
-
 <div class="container">
+
+    <!--Para el fondo de las bolitas-->
+    <div class="bubbles2">
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+        <span style="--i:28"></span>
+        <span style="--i:11"></span>
+        <span style="--i:12"></span>
+        <span style="--i:24"></span>
+        <span style="--i:10"></span>
+        <span style="--i:14"></span>
+        <span style="--i:23"></span>
+        <span style="--i:18"></span>
+        <span style="--i:16"></span>
+        <span style="--i:19"></span>
+        <span style="--i:20"></span>
+        <span style="--i:22"></span>
+        <span style="--i:25"></span>
+        <span style="--i:18"></span>
+        <span style="--i:21"></span>
+        <span style="--i:15"></span>
+        <span style="--i:13"></span>
+        <span style="--i:26"></span>
+        <span style="--i:17"></span>
+    </div>
+
     <div class="row justify-content-center">
 
         <div class="col-md-8">
@@ -14,7 +53,7 @@
 
                 <div class="card-header fw-bold" id="Encabezado_ingreso">{{ __('Ingreso') }}</div>
 
-                <div class="card-body" id="fondo_ingreso">
+                <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

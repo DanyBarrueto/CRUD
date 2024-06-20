@@ -221,7 +221,6 @@
                         <thead class="table-success table-responsive">
 
                         <tr>
-                            <th>#</th>
                             <th>Cédula</th>
                             <th>Expedición</th>
                             <th>Nombre</th>
@@ -241,7 +240,6 @@
                             <!--Conexion con la BDD para permitir mostrar los datos registrados-->
                             @foreach ($trabajadores as $item)
                             <tr>
-                                <td>{{$item->ID_trabajador}}</td>
                                 <td>{{$item->Cedula}}</td>
                                 <td>{{$item->LugarExpedicion}}</td>
                                 <td>{{$item->Nombre}}</td>
@@ -252,7 +250,7 @@
                                 <td>{{$item->Telefono}}</td>
                                 <td>{{$item->NombreCoordinador}}</td>
                                 <td>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarTrabajador{{$item->ID_trabajador}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib fa-beat"></i></a>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarTrabajador{{$item->ID_trabajador}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib"></i></a>
                                 </td>
                             </tr>
 
@@ -262,7 +260,7 @@
                                     <div class="modal-dialog modal-xl modal-lg">
                                         <div class="modal-content" >
 
-                                            <div class="modal-header " style="background-color: #f79a0e;">
+                                            <div class="modal-header">
 
                                             <h1 class="modal-title fs-3 fw-bold" id="exampleModalLabel">Modificar datos</h1>
 
@@ -283,13 +281,6 @@
                                                             Datos personales:
                                                         </h2>
 
-                                                        <!--campo para mostrar el ID del registro (pero este esta bloqueado para su edición)-->
-
-                                                        <div class="col-md-1" id="bloqueado">
-                                                            <label for="id" class="form-label fw-bold">ID</label>
-                                                            <input type="text" id="id" name="id" class="form-control border-dark" value="{{$item->ID_trabajador}}" readonly >
-                                                        </div>
-
                                                         <!--campo para editar la cedula-->
 
                                                         <div class="col-md-2">
@@ -299,7 +290,7 @@
 
                                                         <!--lista desplegable para editar el sitio de expedicion-->
 
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <label for="ID_expedicion" class="form-label fw-bold">Lugar de expedición:</label>
                                                             <select name="ID_expedicion" id="ID_expedicion" class="form-select border-dark" required>
                                                                     <option value=""></option>
@@ -311,26 +302,14 @@
 
                                                         <!--campo para editar el nombre -->
 
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-4">
                                                             <label for="nombre" class="form-label fw-bold">Nombre:</label>
                                                             <input type="text" id="nombre" name="nombre" class="form-control border-dark" value="{{$item->Nombre}}" pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜ\s]+" title="Por favor ingresa solo letras" />
                                                         </div>
 
-                                                        <!--campo para editar el cargo del trabajador-->
-                                                        
-                                                        <div class="col-md-5">
-                                                            <label for="cargo" class="form-label fw-bold">Cargo asignado:</label>
-                                                            <select name="cargo" id="cargo" class="form-select border-dark">
-                                                                <option value=""></option>
-                                                                @foreach ($cargo as $cargoB)
-                                                                    <option value="{{ $cargoB->ID_cargo }}" @if ($cargoB->ID_cargo == $item->ID_cargo) selected @endif>{{ $cargoB->Cargo }}</option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-
                                                         <!--campo para editar el coordinador -->
 
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <label for="coordinador_id" class="form-label fw-bold">Coordinador asignado:</label>
                                                             <select name="coordinador_id" id="coordinador_id" class="form-select border-dark">
                                                                     <option value=""></option>
@@ -340,21 +319,21 @@
                                                             </select>
                                                         </div>
 
-                                                        <!--campo para editar la ubicacion-->
-
-                                                        <div class="col-md-3">
-                                                            <label for="ubicacion" class="form-label fw-bold">Ubicación:</label>
-                                                            <select name="ubicacion" id="ubicacion" class="form-select border-dark">
+                                                        <!--campo para editar el cargo del trabajador-->
+                                                        
+                                                        <div class="col-md-6">
+                                                            <label for="cargo" class="form-label fw-bold">Cargo asignado:</label>
+                                                            <select name="cargo" id="cargo" class="form-select border-dark">
                                                                 <option value=""></option>
-                                                                @foreach ($ubicacion as $ubicacionB)
-                                                                    <option value="{{ $ubicacionB->ID_ubicacion }}" @if ($ubicacionB->ID_ubicacion == $item->ID_ubicacion) selected @endif>{{ $ubicacionB->Ubicacion }}</option>
+                                                                @foreach ($cargo as $cargoB)
+                                                                    <option value="{{ $cargoB->ID_cargo }}" @if ($cargoB->ID_cargo == $item->ID_cargo) selected @endif>{{ $cargoB->Cargo }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
 
                                                         <!--campo para editar la cuenta de correo electonico-->
 
-                                                        <div class="col-md-4">
+                                                        <div class="col-md-3">
                                                             <label for="correo" class="form-label fw-bold">Correo:</label>
                                                             <input type="text" id="correo" name="correo" class="form-control border-dark" value="{{$item->Correo}}" />
                                                         </div>
@@ -364,6 +343,18 @@
                                                         <div class="col-md-3">
                                                             <label for="contraseña" class="form-label fw-bold">Contraseña:</label>
                                                             <input type="text" id="contraseña" name="contraseña" class="form-control border-dark" value="{{$item->Contraseña}}"  />
+                                                        </div>
+
+                                                        <!--campo para editar la ubicacion-->
+
+                                                        <div class="col-md-2">
+                                                            <label for="ubicacion" class="form-label fw-bold">Ubicación:</label>
+                                                            <select name="ubicacion" id="ubicacion" class="form-select border-dark">
+                                                                <option value=""></option>
+                                                                @foreach ($ubicacion as $ubicacionB)
+                                                                    <option value="{{ $ubicacionB->ID_ubicacion }}" @if ($ubicacionB->ID_ubicacion == $item->ID_ubicacion) selected @endif>{{ $ubicacionB->Ubicacion }}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
 
                                                         <!--campo para editar el telefono-->
@@ -434,7 +425,6 @@
                     <table class="table table-light">
                         <thead class="table-success table-responsive ">
                         <tr>
-                            <th>#</th>
                             <th>Estado</th>
                             <th>Codigo</th>
                             <th>Tipo</th>
@@ -464,7 +454,6 @@
                                 en la tabla recien creada-->
                             @foreach ($equipos as $item)
                             <tr>
-                                <td>{{$item->ID_equipo}}</td>
                                 <td>{{$item->Estado}}</td>
                                 <td>{{$item->Codigo}}</td>
                                 <td>{{$item->Tipo}}</td>
@@ -486,7 +475,7 @@
                                 <td>{{$item->Clave_equipo}}</td>
                                 <td>{{$item->Nombre_trabajador}}</td>
                                 <td>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarEquipos{{$item->ID_equipo}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib fa-beat"></i></a>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarEquipos{{$item->ID_equipo}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib"></i></a>
                                 </td>
                             </tr>
                             
@@ -495,7 +484,7 @@
                                 <div class="modal fade" id="modalEditarEquipos{{$item->ID_equipo}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                                     <div class="modal-dialog modal-xl modal-lg">
                                         <div class="modal-content" >
-                                            <div class="modal-header " style="background-color: #3ccaca;">
+                                            <div class="modal-header">
                                             <h1 class="modal-title fs-3 fw-bold" id="exampleModalLabel">Modificar datos</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
@@ -511,13 +500,6 @@
                                                     <!--Desde aca se editan los datos personales del trabajador-->
 
                                                         <h2 class="fw-bold">Datos del equipo:</h2>
-
-                                                        <!--campo para mostrar el ID del registro (NO es editable)-->
-
-                                                        <div class="col-md-1" id="bloqueado">
-                                                            <label for="id" class="form-label fw-bold">ID:</label>
-                                                            <input type="text" id="id" name="id" class="form-control border-dark text-center" value="{{$item->ID_equipo}}" readonly >
-                                                        </div>
 
                                                         <!--campo para editar el estado del equipo-->
 
@@ -545,7 +527,7 @@
 
                                                         <!--campo para editar la cantidad de ram del equipo-->
 
-                                                        <div class="col-md-1">
+                                                        <div class="col-md-2">
                                                             <label for="ram" class="form-label fw-bold">Ram:</label>
                                                             <select id="ram" name="ram" class="form-select border-dark">
                                                                 <option value=""></option>
@@ -734,7 +716,6 @@
                     <table class="table table-light">
                         <thead class="table-success table-responsive ">
                         <tr>
-                            <th>#</th>
                             <th>Codigo</th>
                             <th>Historial de asignaciones</th>
                             <th>Procesos a ejecutar</th>
@@ -748,20 +729,19 @@
                                 en la tabla recien creada-->
                             @foreach ($historico as $item)
                             <tr>
-                                <td>{{$item->ID_historico}}</td>
                                 <td>{{$item->Codigo}}</td>
                                 <td>{{$item->Historial_asignaciones}}</td>
                                 <td style="width: 14vw;">{{$item->Procesos_a_ejecutar}}</td>
                                 <td>{{$item->Anotaciones}}</td>
                                 <td>
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarHistorico{{$item->ID_historico}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib fa-beat"></i></a>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#modalEditarHistorico{{$item->ID_historico}}" class="btn btn-warning btn-sm"><i class="fa-solid fa-pen-nib"></i></a>
                                 </td>
                             </tr>
                             <!-- Modal para modificar los datos de los registros de la BDD-->
                                 <div class="modal fade" id="modalEditarHistorico{{$item->ID_historico}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
                                     <div class="modal-dialog modal-xl modal-lg">
                                         <div class="modal-content" >
-                                            <div class="modal-header " style="background-color: #0dec63;">
+                                            <div class="modal-header">
                                             <h1 class="modal-title fs-3 fw-bold" id="exampleModalLabel">Modificar datos</h1>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
@@ -779,16 +759,6 @@
                                                         <h2 class="fw-bold">Historial:</h2>
 
                                                         <!--campo para mostrar el ID del historico (NO es editable)-->
-
-                                                        <div class="col-md-1" id="bloqueado">
-                                                            <label for="ID_historico" class="form-label fw-bold">ID:</label>
-                                                            <input type="text" id="id" name="id" class="form-control border-dark text-center" value="{{$item->ID_historico}}" readonly >
-                                                        </div>
-
-                                                        <div class="col-md-1" id="bloqueado">
-                                                            <label for="ID_equipo" class="form-label fw-bold">ID equipo:</label>
-                                                            <input type="text" id="id_equipo" name="id_equipo" class="form-control border-dark text-center" value="{{$item->ID_equipo}}" readonly/>
-                                                        </div>
 
                                                         <div class="col-md-2" id="bloqueado">
                                                             <label for="Codigo" class="form-label fw-bold">Codigo del equipo:</label>

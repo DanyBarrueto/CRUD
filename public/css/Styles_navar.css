@@ -47,89 +47,107 @@
 
     /*Botones principales (pre-ingreso)*/
 
-    nav #boton_navegacion:hover{
-        background-color: #0edb5d;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        /*Botón login*/
+        nav #boton_navegacion:hover{
+            background-color: #0edb5d;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
 
-    nav #boton_registro:hover{
-        background-color: #c300ff;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        /*Botón registro*/
+        nav #boton_registro:hover{
+            background-color: #c300ff;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
 
     /*Botones principales (post-ingreso)*/
 
-    nav #boton_registros:hover{
-        background-color: #4cd6a1;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        /*Botón para ir a la sección registros*/
 
-    nav #boton_consultas:hover{
-        background-color: #ffd900;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        nav #boton_registros:hover{
+            background-color: #4cd6a1;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
 
-    nav #boton_descargar:hover{
-        background-color: #15ff00;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        /*Botón para ir a la sección consultas*/
 
-    nav #boton_usuario:hover{
-        background-color: #18d8e6;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        nav #boton_consultas:hover{
+            background-color: #ffd900;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
+
+        /*Botón para descargar datos de la base de datos*/
+
+        nav #boton_descargar:hover{
+            background-color: #15ff00;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
+
+        /*Botón usuario (cierre de sesión) */
+
+        nav #boton_usuario:hover{
+            background-color: #18d8e6;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
 
     /*Botones de descarga*/
 
-    #descargar_trabajadores:hover{
-        background-color: #008cff;
-        color: #ffffff;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        /*Botón descargar tabla trabajadores*/
 
-    #descargar_equipos:hover{
-        background-color: #ffae00;
-        color: #ffffff;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        #descargar_trabajadores:hover{
+            background-color: #008cff;
+            color: #ffffff;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
 
-    #descargar_historico:hover{
-        background-color: #08b64a;
-        color: #ffffff;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        /*Botón descargar tabla equipos*/
 
-    #descargar_todo:hover{
-        background-color: #5900ff;
-        color: #ffffff;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        #descargar_equipos:hover{
+            background-color: #ffae00;
+            color: #ffffff;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
 
-    /*Botón para cerrar sesión*/
+        /*Botón descargar tabla histórico*/
 
-    #boton_cerrar:hover{
-        color: #ffffff;
-        transform: scale(1.1);
-        transition: all 0.4s linear;
-        border-radius: 10px;
-    }
+        #descargar_historico:hover{
+            background-color: #08b64a;
+            color: #ffffff;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
+
+        /*Botón descargar BDD*/
+
+        #descargar_todo:hover{
+            background-color: #5900ff;
+            color: #ffffff;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
+
+        /*Botón para cerrar sesión*/
+
+        #boton_cerrar:hover{
+            color: #ffffff;
+            transform: scale(1.1);
+            transition: all 0.4s linear;
+            border-radius: 10px;
+        }
