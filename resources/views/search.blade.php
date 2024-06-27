@@ -269,58 +269,54 @@
 
                                             <div class="modal-body">
                                                 <form class="col-md-8" action="{{ route('example-app.update') }}" method="post">
-
-                                                    <!--Para proteger contra ataques CSRF-->
                                                     @csrf
+                                                    
+                                                    <!-- campo oculto para detectar el id-->
+
+                                                    <input type="hidden" name="id" value="{{ $item->ID_trabajador }}">
 
                                                     <div class="row">
 
-                                                    <!--Desde aca se editan los datos personales del trabajador-->
-
-                                                        <h2 class="fw-bold">
-                                                            Datos personales:
-                                                        </h2>
-
-                                                        <!--campo para editar la cedula-->
+                                                        <!-- campo para editar la cedula -->
 
                                                         <div class="col-md-2">
                                                             <label for="cedula" class="form-label fw-bold">Cédula:</label>
-                                                            <input type="text" id="cedula" name="cedula" class="form-control border-dark" value="{{$item->Cedula}}"/>
+                                                            <input type="text" id="cedula" name="cedula" class="form-control border-dark" value="{{$item->Cedula}}" />
                                                         </div>
 
-                                                        <!--lista desplegable para editar el sitio de expedicion-->
+                                                        <!-- lista desplegable para editar el sitio de expedición -->
 
                                                         <div class="col-md-3">
                                                             <label for="ID_expedicion" class="form-label fw-bold">Lugar de expedición:</label>
                                                             <select name="ID_expedicion" id="ID_expedicion" class="form-select border-dark" required>
-                                                                    <option value=""></option>
+                                                                <option value=""></option>
                                                                 @foreach ($expedicion as $expedicionB)
                                                                     <option value="{{ $expedicionB->ID_expedicion }}" @if ($expedicionB->ID_expedicion == $item->ID_expedicion) selected @endif>{{ $expedicionB->Lugar }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
 
-                                                        <!--campo para editar el nombre -->
+                                                        <!-- campo para editar el nombre -->
 
                                                         <div class="col-md-4">
                                                             <label for="nombre" class="form-label fw-bold">Nombre:</label>
                                                             <input type="text" id="nombre" name="nombre" class="form-control border-dark" value="{{$item->Nombre}}" pattern="[a-zA-ZáéíóúÁÉÍÓÚüÜ\s]+" title="Por favor ingresa solo letras" />
                                                         </div>
 
-                                                        <!--campo para editar el coordinador -->
+                                                        <!-- campo para editar el coordinador -->
 
                                                         <div class="col-md-3">
                                                             <label for="coordinador_id" class="form-label fw-bold">Coordinador asignado:</label>
                                                             <select name="coordinador_id" id="coordinador_id" class="form-select border-dark">
-                                                                    <option value=""></option>
+                                                                <option value=""></option>
                                                                 @foreach ($coordinador as $coordinadorB)
                                                                     <option value="{{ $coordinadorB->ID_coordinador }}" @if ($coordinadorB->ID_coordinador == $item->ID_coordinacion) selected @endif>{{ $coordinadorB->Nombre }}</option>
                                                                 @endforeach
                                                             </select>
                                                         </div>
 
-                                                        <!--campo para editar el cargo del trabajador-->
-                                                        
+                                                        <!-- campo para editar el cargo del trabajador -->
+
                                                         <div class="col-md-6">
                                                             <label for="cargo" class="form-label fw-bold">Cargo asignado:</label>
                                                             <select name="cargo" id="cargo" class="form-select border-dark">
@@ -331,21 +327,21 @@
                                                             </select>
                                                         </div>
 
-                                                        <!--campo para editar la cuenta de correo electonico-->
+                                                        <!-- campo para editar la cuenta de correo electrónico -->
 
                                                         <div class="col-md-3">
                                                             <label for="correo" class="form-label fw-bold">Correo:</label>
                                                             <input type="text" id="correo" name="correo" class="form-control border-dark" value="{{$item->Correo}}" />
                                                         </div>
 
-                                                        <!--campo para editar la contraseña de la cuenta-->
+                                                        <!-- campo para editar la contraseña de la cuenta -->
 
                                                         <div class="col-md-3">
                                                             <label for="contraseña" class="form-label fw-bold">Contraseña:</label>
-                                                            <input type="text" id="contraseña" name="contraseña" class="form-control border-dark" value="{{$item->Contraseña}}"  />
+                                                            <input type="text" id="contraseña" name="contraseña" class="form-control border-dark" value="{{$item->Contraseña}}" />
                                                         </div>
 
-                                                        <!--campo para editar la ubicacion-->
+                                                        <!-- campo para editar la ubicación -->
 
                                                         <div class="col-md-2">
                                                             <label for="ubicacion" class="form-label fw-bold">Ubicación:</label>
@@ -357,22 +353,20 @@
                                                             </select>
                                                         </div>
 
-                                                        <!--campo para editar el telefono-->
+                                                        <!-- campo para editar el teléfono -->
 
                                                         <div class="col-md-2">
                                                             <label for="telefono" class="form-label fw-bold">Teléfono:</label>
                                                             <input type="text" id="telefono" name="telefono" class="form-control border-dark" value="{{$item->Telefono}}" />
                                                         </div>
 
-                                                        <br><br>
-
-                                                        <!--campo de los botones para cerrar la pestaña emergente o para poder guardar los cambios en los datos -->
+                                                        <!-- botones para cerrar o para poder guardar los cambios -->
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-danger fw-bold" data-bs-dismiss="modal" id="boton_cerrar">Cerrar</button>
-                                                            <button type="submit" class="btn btn-success fw-bold" id="boton_guardar_cambios" >Guardar cambios</button>
+                                                            <button type="submit" class="btn btn-success fw-bold" id="boton_guardar_cambios">Guardar cambios</button>
                                                         </div>
-                                                    </div>           
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -491,17 +485,16 @@
 
                                             <div class="modal-body">
                                                 <form class="col-md-8" action="{{ route('example-app.update2') }}" method="post">
-
-                                                    <!--Para proteger contra ataques CSRF-->
                                                     @csrf
 
+                                                    <!-- campo oculto para el ID del equipo -->
+
+                                                    <input type="hidden" name="id" value="{{ $item->ID_equipo }}">
+                                            
                                                     <div class="row">
-
-                                                    <!--Desde aca se editan los datos personales del trabajador-->
-
                                                         <h2 class="fw-bold">Datos del equipo:</h2>
-
-                                                        <!--campo para editar el estado del equipo-->
+                                            
+                                                        <!-- Campo para editar el estado del equipo -->
 
                                                         <div class="col-md-2">
                                                             <label for="estado" class="form-label fw-bold">Estado:</label>
@@ -516,19 +509,19 @@
                                                                 <option value="Pendiente" {{ $item->Estado == 'Pendiente' ? 'selected' : '' }}>Pendiente</option>
                                                                 <option value="Asignado" {{ $item->Estado == 'Asignado' ? 'selected' : '' }}>Asignado</option>
                                                             </select>                    
-                                                        </div>                                                        
-
-                                                        <!--campo para editar el codigo designado al equipo-->
-
-                                                        <div class="col-md-2">
-                                                            <label for="codigo" class="form-label fw-bold">Codigo:</label>
-                                                            <input type="text" id="codigo" name="codigo" class="form-control border-dark" value="{{$item->Codigo}}"  />
                                                         </div>
-
-                                                        <!--campo para editar la cantidad de ram del equipo-->
+                                            
+                                                        <!-- Campo para editar el código designado al equipo -->
 
                                                         <div class="col-md-2">
-                                                            <label for="ram" class="form-label fw-bold">Ram:</label>
+                                                            <label for="codigo" class="form-label fw-bold">Código:</label>
+                                                            <input type="text" id="codigo" name="codigo" class="form-control border-dark" value="{{$item->Codigo}}" />
+                                                        </div>
+                                            
+                                                        <!-- Campo para editar la cantidad de RAM del equipo -->
+
+                                                        <div class="col-md-2">
+                                                            <label for="ram" class="form-label fw-bold">RAM:</label>
                                                             <select id="ram" name="ram" class="form-select border-dark">
                                                                 <option value=""></option>
                                                                 <option value="4GB" {{ $item->Ram == '4GB' ? 'selected' : '' }}>4GB</option>
@@ -540,9 +533,9 @@
                                                                 <option value="48GB" {{ $item->Ram == '48GB' ? 'selected' : '' }}>48GB</option>                            
                                                                 <option value="64GB" {{ $item->Ram == '64GB' ? 'selected' : '' }}>64GB</option>
                                                             </select>
-                                                        </div>                                                        
-
-                                                        <!--lista desplegable para editar la cantidad de almacenamiento del disco duro-->
+                                                        </div>
+                                            
+                                                        <!-- Campo para editar la cantidad de almacenamiento del disco duro -->
 
                                                         <div class="col-md-2">
                                                             <label for="disco_duro" class="form-label fw-bold">Disco Duro:</label>
@@ -568,15 +561,15 @@
                                                                 <option value="2TB" {{ $item->Disco == '2TB' ? 'selected' : '' }}>2 TB</option>
                                                             </select>
                                                         </div>
-                                                        
-                                                        <!--campo para editar el codigo del anydesk para conectarse-->
+                                            
+                                                        <!-- Campo para editar el código del Anydesk para conectarse -->
 
                                                         <div class="col-md-2">
                                                             <label for="anydesk" class="form-label fw-bold">Anydesk:</label>
                                                             <input type="text" id="anydesk" name="anydesk" class="form-control border-dark" value="{{$item->Anydesk}}" />
                                                         </div>
-
-                                                        <!--lista desplegable para editar el sistema operativo-->
+                                            
+                                                        <!-- Lista desplegable para editar el sistema operativo -->
 
                                                         <div class="col-md-2">
                                                             <label for="tipo_sistema" class="form-label fw-bold">Sistema Operativo:</label>
@@ -586,9 +579,9 @@
                                                                 <option value="Windows11" {{ $item->Sistema_operativo == 'Windows11' ? 'selected' : '' }}>Windows 11</option>
                                                                 <option value="Windows12" {{ $item->Sistema_operativo == 'Windows12' ? 'selected' : '' }}>Windows 12</option>
                                                             </select>
-                                                        </div>                                                        
-
-                                                        <!--lista desplegable para editar la licensia (osea si tiene windows home, pro, etc)-->
+                                                        </div>
+                                            
+                                                        <!-- Lista desplegable para editar la licencia -->
 
                                                         <div class="col-md-3">
                                                             <label for="licencia" class="form-label fw-bold">Licencia:</label>
@@ -599,8 +592,8 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-                                                                                                            
-                                                        <!--campo para editar la ubicacion-->
+                                            
+                                                        <!-- Campo para editar la ubicación -->
 
                                                         <div class="col-md-3">
                                                             <label for="ubicacion" class="form-label fw-bold">Ubicación:</label>
@@ -611,8 +604,8 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-
-                                                        <!--lista desplegable para elegir la oficina donde se encuentra-->
+                                            
+                                                        <!-- Lista desplegable para elegir la oficina donde se encuentra -->
 
                                                         <div class="col-md-2">
                                                             <label for="oficina" class="form-label fw-bold">Oficina:</label>
@@ -623,8 +616,8 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-
-                                                        <!--lista desplegable para elegir la direccion de la oficina (norte,sur,centro,local)-->
+                                            
+                                                        <!-- Lista desplegable para elegir la dirección de la oficina (norte, sur, centro, local) -->
 
                                                         <div class="col-md-2">
                                                             <label for="direccion" class="form-label fw-bold">Dirección:</label>
@@ -635,15 +628,15 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-                                                        
-                                                        <!--campo para la clave del equipo asignado-->
+                                            
+                                                        <!-- Campo para la clave del equipo asignado -->
 
                                                         <div class="col-md-2">
                                                             <label for="clave_equipo" class="form-label fw-bold">Clave:</label>
-                                                            <input type="text" id="clave_equipo" name="clave_equipo" class="form-control border-dark" value="{{$item->Clave_equipo}}"  />
+                                                            <input type="text" id="clave_equipo" name="clave_equipo" class="form-control border-dark" value="{{$item->Clave_equipo}}" />
                                                         </div>
-
-                                                        <!--campo para seleccionar el trabajador al cual esta asignado el equipo-->
+                                            
+                                                        <!-- Campo para seleccionar el trabajador al cual está asignado el equipo -->
 
                                                         <div class="col-md-4">
                                                             <label for="trabajador_id" class="form-label fw-bold">Trabajador Asignado:</label>
@@ -654,18 +647,16 @@
                                                                 @endforeach
                                                             </select>
                                                         </div>
-                                                        <br><br>
-
-                                                        <!--campo de los botones para cerrar la pestaña emergente o para poder guardar los cambios
-                                                        en los datos -->
-
+                                            
+                                                        <!-- Botones para cerrar o guardar los cambios -->
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-danger fw-bold" data-bs-dismiss="modal" id="boton_cerrar">Cerrar</button>
-                                                            <button type="submit" class="btn btn-success fw-bold" id="boton_guardar_cambios" >Guardar cambios</button>
+                                                            <button type="submit" class="btn btn-success fw-bold" id="boton_guardar_cambios">Guardar cambios</button>
                                                         </div>
                                                     </div>           
                                                 </form>
                                             </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -758,23 +749,33 @@
 
                                                         <h2 class="fw-bold">Historial:</h2>
 
-                                                        <!--campo para mostrar el ID del historico (NO es editable)-->
+                                                        <!--campo oculto del id historico-->
+
+                                                        <input type="hidden" name="id" value="{{ $item->ID_historico }}">
+
+                                                        <!--campo para mostrar el codigo del equipo bloqueado-->
 
                                                         <div class="col-md-2" id="bloqueado">
                                                             <label for="Codigo" class="form-label fw-bold">Codigo del equipo:</label>
                                                             <input type="text" id="codigo" name="codigo" class="form-control border-dark text-center" value="{{$item->Codigo}}" readonly/>
                                                         </div>
-                        
+                                                        
+                                                        <!--campo para mostrar el historial de asignación-->
+
                                                         <div class="col-md-12">
                                                             <label for="historial_asignacion" class="form-label fw-bold">Historial asignación:</label>
                                                             <input type="text" id="historial_asignacion" name="historial_asignacion" class="form-control border-dark" value="{{$item->Historial_asignaciones}}"/>
                                                         </div>
 
+                                                        <!--campo para mostrar los procesos ejecutados -->
+
                                                         <div class="col-md-12">
                                                             <label for="procesos_ejecutar" class="form-label fw-bold">Procesos a ejecutar:</label>
                                                             <input type="text" id="procesos_ejecutar" name="procesos_ejecutar" class="form-control border-dark" value="{{$item->Procesos_a_ejecutar}}"/>
                                                         </div>
-                        
+                                                        
+                                                        <!--campo para mostrar las anotaciones-->
+
                                                         <div class="col-md-12">
                                                             <label for="anotaciones" class="form-label fw-bold">Anotaciones:</label>
                                                             <textarea name="anotaciones" rows="3" class="form-control border-dark">{{$item->Anotaciones}}</textarea>
@@ -782,8 +783,7 @@
                                                         
                                                         <br><br>
 
-                                                        <!--campo de los botones para cerrar la pestaña emergente o para poder guardar los cambios
-                                                        en los datos -->
+                                                        <!--campo de los botones para cerrar o para poder guardar los cambios-->
 
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-danger fw-bold" data-bs-dismiss="modal" id="boton_cerrar">Cerrar</button>
@@ -800,11 +800,10 @@
                         </tbody>
                     </table>
                     
-                    </div>
-
                 </div>
-                </div>
+                
+            </div>
+        </div>
     </div>
-
 </div>
 @endsection
